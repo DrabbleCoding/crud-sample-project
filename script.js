@@ -1,7 +1,7 @@
 var app = new function(){
     this.el = document.getElementById('tasks');
     this.tasks=[]
-    console.log(this.tasks)
+    // console.log(this.tasks)
     this.fetch_all = function(){ //displays all tasks
         
         var data='';
@@ -36,23 +36,28 @@ var app = new function(){
 
     this.edit_task = function(item){//edits a task
         el = document.getElementById('edit-todo');
+        
         el.value = this.tasks[item]
-        // console.log(Array.isArray(this.tasks))
+
         document.getElementById('edit-box').style.display='block';
         self = this;
-        // console.log(Array.isArray(this.tasks))
+  
 
-        document.getElementById('save-edit').onsubmit = function(){ //this function is not recognizing this.tasks as a list
-            var task = el.value;
+        const submitButton = () => { //save button actions
+            var t = el.value;
             
-            if (task){
-                // console.log(Array.isArray(this.tasks))
-                this.tasks.splice(item, 1, task.trim());
-                //above line is not working for some reason
+            if (t){
+                
+                // console.log(this)
+                this.tasks.splice(item, 1, t.trim());
+    
                 self.fetch_all();
                 CloseInput();
             }
+
         }
+
+        document.getElementById('save-edit').onsubmit = submitButton //actions for save button
 
     };
 
