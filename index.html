@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="script.js"></script>
+        <meta charset = "UTF-8">
+        <title>To do list for today</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="title">
+            <h1> crud sample </h1>
+            <p> my to do list for today:</p>
+        </div>
+
+        <div class="form">
+            <form action="javascript:void(0);" method="POST" onsubmit="app.add_tasks()">
+            <input type="text" id="add-todo" placeholder="To do task">
+            <input type="submit" value="Add" class="btn btn-primary">
+        </form>
+        <p> tasks left for today:</p>
+        <p id="counter"> </p>
+        <table>
+            <tr class="to-do"> 
+                <th> <h3> Tasks:</h3></th>
+            </tr>
+            <tbody id="tasks"></tbody>
+
+        </table>
+        </div>
+
+        <div id="edit-box" role="aria-hidden">
+            <form action="javascript:void(0);" method="POST" 
+            id="save-edit">
+            <input type="text" id="edit-todo">
+            <input type="submit" value="Save" class="btn btn-success"/>
+            <a onclick="CloseInput()" aria-label="Close"> X </a>
+        </form>
+
+
+        </div>
+        
+    </body>
+</html>
